@@ -1,0 +1,217 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.container{
+    margin: auto; 
+    font-family: 'Rock Salt', cursive;
+    background-image: linear-gradient(#F8F8F8,#547960);
+    background-repeat: no-repeat;
+    color:#140f0b;
+    width: 100%;
+    min-width: 1000px; 
+}
+h1{
+    text-align: center; 
+    padding-top: 75px; 
+    padding-bottom: 50px; 
+    font-size: 30pt; 
+}
+
+footer{
+    padding-top: 90px; 
+    text-align: center;
+    font-size: 10pt; 
+    padding-bottom: 10px; 
+}
+.tall-succ{
+    height: 320px; 
+    box-shadow: 0 0 2px 2px #cdd7d0;
+    opacity: .80;
+    position: relative; 
+    z-index: -1; 
+}
+.header h3{
+    margin-top: 20px; 
+    color: white; 
+    font-weight: bold;
+    font-size: 20pt; 
+    text-align: right;  
+    margin-right: 160px;
+}
+
+.sub-butt{
+	font-family: 'Rock Salt', cursive; 
+	font-size: 13pt;  
+    border-radius: 5px;  
+    border: solid black 2px; 
+    background-color: transparent; 
+    height: 40px; 
+    width: 300px; 
+    margin-top: 25px;  
+    margin-bottom: 25px;  
+}
+.sub-butt:hover{
+    background-color: #BBFD5E;
+}
+
+.reg-form{
+	font-size: 10pt; 
+	border: solid black 1px; 
+	min-width: 500px;
+	margin: 75px 400px; 
+	text-align: center; 
+}
+
+input{
+	border-radius: 3px; 
+	height: 45px; 
+	width: 250px; 
+	border: solid #140f0b 1px; 
+	font-family: 'Rock Salt', cursive; 
+	background-color: #F8F8F8;
+	opacity: .65;
+	padding-left: 5px; 
+	margin-top: 10px; 
+	
+}
+.header a{
+    text-decoration: none; 
+    color: white; 
+    position: fixed; 
+}
+
+.header a:hover{
+    color: #547960;
+}
+.succ-icon{
+    z-index: -1; 
+    position: fixed; 
+    opacity: .15;
+    height: 900px; 
+    left: 260px;  
+   	top: 70px;
+}
+#overlay-one{
+	z-index: -1; 
+	position: fixed; 
+	opacity: .15;
+	height: 700px; 
+	bottom: 350px; 
+	
+}
+#overlay-two{
+	z-index: -1; 
+	position: fixed; 
+	opacity: .15;
+	height: 700px; 
+	bottom: 350px; 
+	left: 740px; 
+	
+}
+.nav ul {
+    position: absolute;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.nav a{
+    text-decoration: none; 
+    color: white; 
+}
+
+
+.nav {
+    -webkit-transition: left 0.5s ease;
+    -moz-transition: left 0.5s ease;
+    -ms-transition: left 0.5s ease;
+    -o-transition: left 0.5s ease;
+    transition: left 0.5s ease;
+    background:#140f0b;
+    color: white;
+    cursor: pointer;
+    font-size: 2rem;
+    height: 100vh;
+    left: -25rem;
+    padding: 6rem 2rem 2rem 2rem;
+    position: fixed;
+    top: 0;
+    width: 20rem;
+    z-index: 1;
+}
+
+.nav.expanded { 
+    left: 0; 
+}
+
+.nav-toggle {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+    cursor: pointer;
+    height: 2rem;
+    left: 2rem;
+    position: fixed;
+    top: 2rem;
+    width: 3.6rem;
+    z-index: 2;
+}
+.nav a:hover{
+    opacity: 0.8; 
+}
+.nav-toggle:hover { opacity: 0.8; }
+
+.nav-toggle .nav-toggle-bar,  .nav-toggle .nav-toggle-bar::after,  .nav-toggle .nav-toggle-bar::before {
+    position: absolute;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -ms-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+    background: white;
+    content: '';
+    height: 0.4rem;
+    width: 100%;
+}
+
+.nav-toggle .nav-toggle-bar { 
+    margin-top: 0; 
+}
+
+.nav-toggle .nav-toggle-bar::after { 
+    margin-top: 0.8rem; 
+}
+
+.nav-toggle .nav-toggle-bar::before { 
+    margin-top: -0.8rem;
+}
+
+.nav-toggle.expanded .nav-toggle-bar { 
+    background: transparent; 
+}
+
+.nav-toggle.expanded .nav-toggle-bar::after, .nav-toggle.expanded .nav-toggle-bar::before {
+    background: white;
+    margin-top: 0;
+}
+
+.nav-toggle.expanded .nav-toggle-bar::after {
+    -ms-transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+
+.nav-toggle.expanded .nav-toggle-bar::before {
+    -ms-transform: rotate(-45deg);
+    -webkit-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+}

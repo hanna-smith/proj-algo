@@ -1,0 +1,237 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.container{
+    margin: auto; 
+    font-family: 'Rock Salt', cursive;
+    background-image: linear-gradient(#F8F8F8,#547960);
+    background-repeat: no-repeat;
+    color:#140f0b;
+    width: 100%; 
+    height: 100%;
+}
+.succ-pic{
+    max-height: 320px; 
+    display: inline-block; 
+    box-shadow: 0 0 2px 2px #cdd7d0;
+    opacity: .80;
+}
+.tall-succ{
+    max-height: 320px; 
+    box-shadow: 0 0 2px 2px #cdd7d0;
+    opacity: .80;
+    position: relative; 
+    z-index: -1; 
+}
+.header h3{
+    margin-top: 20px; 
+    color: white; 
+    font-weight: bold;
+    font-size: 20pt; 
+    text-align: right;  
+    margin-right: 160px;
+}
+
+.header a{
+    text-decoration: none; 
+    color: white; 
+    position: fixed; 
+}
+
+.header a:hover{
+    color: #547960;
+}
+.succ-icon{
+    z-index: -1; 
+    position: fixed; 
+    opacity: .15;
+    height: 900px; 
+    left: 260px;  
+   	top: 70px;
+}
+#overlay-one{
+	z-index: -1; 
+	position: fixed; 
+	opacity: .15;
+	height: 700px; 
+	bottom: 350px; 
+	
+}
+#overlay-two{
+	z-index: -1; 
+	position: fixed; 
+	opacity: .15;
+	height: 700px; 
+	bottom: 350px; 
+	left: 740px; 
+	
+}
+footer{
+    padding-top: 90px; 
+    text-align: center;
+    font-size: 10pt; 
+    padding-bottom: 10px; 
+}
+.page-info p{
+    width: 500px; 
+    height: 300px; 
+    display: inline-block; 
+    color: #f4e2d6; 
+    text-align: center; 
+    margin-left: 140px; 
+    background-color: #140f0b;
+    opacity: .85;
+    box-shadow: 0 0 2px 2px #cdd7d0;
+    vertical-align: top;
+    padding-top: 20px; 
+}
+
+h1{
+    text-align: center; 
+    padding-top: 75px; 
+    padding-bottom: 50px; 
+    font-size: 30pt; 
+}
+
+.sign-up{
+    margin-top: 75px; 
+    width: 100%; 
+    margin-bottom: 50px; 
+    margin-left: 100px; 
+    padding-top: 50px; 
+}
+.sign-up h3{
+    display: inline-block; 
+} 
+
+.sign-up input{
+    height: 25px; 
+    width: 500px; 
+    font-family: 'Rock Salt', cursive;
+    border-radius: 5px; 
+    border: none; 
+    display: inline-block; 
+    padding-left: 5px; 
+}
+
+.subscribe{
+    font-family: 'Rock Salt', cursive;
+    padding: 5px 10px 5px 10px;  
+    border-radius: 5px; 
+    margin-top: 75px; 
+    margin-left: 600px; 
+    border: solid black 2px; 
+    font-size: 16pt; 
+    background-color: transparent;
+}
+
+.subscribe:hover{
+    background-color: #BBFD5E;
+}
+.nav ul {
+    position: absolute;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.nav a{
+    text-decoration: none; 
+    color: white; 
+}
+
+
+.nav {
+    -webkit-transition: left 0.5s ease;
+    -moz-transition: left 0.5s ease;
+    -ms-transition: left 0.5s ease;
+    -o-transition: left 0.5s ease;
+    transition: left 0.5s ease;
+    background:#140f0b;
+    color: white;
+    cursor: pointer;
+    font-size: 2rem;
+    height: 100vh;
+    left: -25rem;
+    padding: 6rem 2rem 2rem 2rem;
+    position: fixed;
+    top: 0;
+    width: 20rem;
+    z-index: 1;
+}
+
+.nav.expanded { 
+    left: 0; 
+}
+
+.nav-toggle {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+    cursor: pointer;
+    height: 2rem;
+    left: 2rem;
+    position: fixed;
+    top: 2rem;
+    width: 3.6rem;
+    z-index: 2;
+}
+.nav a:hover{
+    opacity: 0.8; 
+}
+.nav-toggle:hover { opacity: 0.8; }
+
+.nav-toggle .nav-toggle-bar,  .nav-toggle .nav-toggle-bar::after,  .nav-toggle .nav-toggle-bar::before {
+    position: absolute;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -ms-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+    background: white;
+    content: '';
+    height: 0.4rem;
+    width: 100%;
+}
+
+.nav-toggle .nav-toggle-bar { 
+    margin-top: 0; 
+}
+
+.nav-toggle .nav-toggle-bar::after { 
+    margin-top: 0.8rem; 
+}
+
+.nav-toggle .nav-toggle-bar::before { 
+    margin-top: -0.8rem;
+}
+
+.nav-toggle.expanded .nav-toggle-bar { 
+    background: transparent; 
+}
+
+.nav-toggle.expanded .nav-toggle-bar::after, .nav-toggle.expanded .nav-toggle-bar::before {
+    background: white;
+    margin-top: 0;
+}
+
+.nav-toggle.expanded .nav-toggle-bar::after {
+    -ms-transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+
+.nav-toggle.expanded .nav-toggle-bar::before {
+    -ms-transform: rotate(-45deg);
+    -webkit-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+}
