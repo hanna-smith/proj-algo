@@ -26,11 +26,5 @@ public class UserValidator {
 			error.rejectValue("email", "Unique", "You already have an account.");
 		}
 		
-		if(user.getfName().isEmpty()) {
-			error.rejectValue("fName", "noEmpties", "You must provide a valid name.");
-		}
-		if(user.getlName().isEmpty()) {
-			error.rejectValue("lName", "noEmpties", "You must provide a valid last name.");
-		}
 	}
 }

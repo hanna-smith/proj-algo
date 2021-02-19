@@ -13,6 +13,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.PrePersist;
 import javax.persistence.PreUpdate;
 import javax.persistence.Table;
+import javax.validation.constraints.Future;
 import javax.validation.constraints.NotBlank; 
 
 
@@ -27,6 +28,7 @@ public class Subscription {
 	@NotBlank
 	private int subLengthInMonths; 
 	@NotBlank
+	@Future
 	private Date shipmentDate; 
 	@NotBlank
 	private String plantSelection;

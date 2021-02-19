@@ -15,6 +15,7 @@ import javax.persistence.PreUpdate;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 
 @Entity
@@ -24,13 +25,17 @@ public class User {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long id; 
+	@NotBlank
 	@Size(min=3, max=15)
 	private String fName; 
+	@NotBlank
 	@Size(min=3, max=15)
 	private String lName; 
+	@NotBlank
 	@Email
 	private String email; 
-	@Size(min=8, max=15)
+	@NotBlank
+	@Size(min=8)
 	private String password; 
 	@Transient
 	private String confirmPass; 

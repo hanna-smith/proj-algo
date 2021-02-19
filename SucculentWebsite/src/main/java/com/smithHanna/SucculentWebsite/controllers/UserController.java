@@ -37,7 +37,7 @@ public class UserController {
 		}
 		User user = this.uService.findUserByEmail(email);
 		session.setAttribute("user_id", user.getId());
-		return "redirect:/userhomepage"; 
+		return "redirect:/dashboard"; 
 	}
 	
 	@GetMapping("/logout")
@@ -59,7 +59,7 @@ public class UserController {
 		}
 		User newUser = this.uService.registerUser(user);
 		session.setAttribute("user_id", newUser.getId());
-		return "redirect:/subscriptiondetails"; 
+		return "redirect:/login"; 
 	}
 
 }

@@ -36,31 +36,36 @@
 		<img class="succ-icon" src="/images/succulenticon.webp">
         <img id="overlay-one" src="/images/succulenticon.webp">
         <img id="overlay-two" src="/images/succulenticon.webp">
-        <h2>Step 1: </h2>
+        
 		<div class="reg-form">
 		<h3>Tell Us Who You Are!</h3>
 			<form:form method="POST" action="/subscribe" modelAttribute="user">
 				<div class="form-group"> 
-					<form:errors path="fName"/>
+					<form:errors path="fName" class="errors"/>
+					<br>
 					<form:input path="fName" placeholder="First Name"/>
 				</div>
 				<div class="form-group">
-					<form:errors path="lName"/>
-					<form:input path="fName" placeholder="Last Name"/>
+					<form:errors path="lName" class="errors"/>
+					<br>
+					<form:input path="lName" placeholder="Last Name"/>
 				</div>
 				<div class="form-group">
-					<form:errors path="email"/>
+					<form:errors path="email" class="errors"/>
+					<br>
 					<form:input path="email" placeholder="Email"/>
 				</div>
 				<div class="form-group">
-					<form:errors path="password"/>
+					<form:errors path="password" class="errors"/>
+					<br>
 					<form:input type="password" path="password" placeholder="Password"/>
 				</div>
 				<div class="form-group">
-					<form:errors path="confirmPass"/>
+					<form:errors path="confirmPass" class="errors"/>
+					<br>
 					<form:input type="password" path="confirmPass" placeholder="Confirm Password"/>
 				</div>
-				<input class="sub-butt" type="submit" value="Choose my Subscription">
+				<input class="sub-butt" type="submit" value="Login and choose Your Subscription">
 				</form:form>
 			</div>
 			<footer>

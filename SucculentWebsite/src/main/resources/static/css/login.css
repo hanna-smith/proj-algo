@@ -10,6 +10,7 @@
     color:#140f0b;
     width: 100%;
     min-width: 1000px; 
+    height: 100%;
 }
 h1{
     text-align: center; 
@@ -39,47 +40,7 @@ footer{
     text-align: right;  
     margin-right: 160px;
 }
-.errors{
-	font-size: 8pt; 
-}
-.sub-butt{
-	font-family: 'Rock Salt', cursive; 
-	font-size: 10pt;  
-    border-radius: 5px;  
-    border: solid black 2px; 
-    background-color: transparent; 
-    height: 50px; 
-    width: 350px; 
-    margin-top: 25px;  
-    margin-bottom: 25px;  
-}
-.sub-butt:hover{
-    background-color: #BBFD5E;
-}
 
-.reg-form{
-	font-size: 10pt;  
-	min-width: 500px;
-	margin: 50px 400px; 
-	text-align: center; 
-	
-}
-
-.reg-form h3{
-	font-size: 15pt; 
-}
-
-input{
-	border-radius: 3px; 
-	height: 45px; 
-	width: 250px; 
-	border: solid #140f0b 1px; 
-	font-family: 'Rock Salt', cursive; 
-	background-color: #F8F8F8;
-	opacity: .65;
-	padding-left: 5px; 
-	
-}
 .header a{
     text-decoration: none; 
     color: white; 
@@ -96,6 +57,45 @@ input{
     height: 900px; 
     left: 260px;  
    	top: 70px;
+}
+.nav ul {
+    position: absolute;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+.log-form{
+	text-align: center; 
+	min-height: 500px; 
+}
+.form{
+	font-family: 'Rock Salt', cursive;
+	border-radius: 5px; 
+	height: 50px; 
+	width: 300px; 
+	padding-left: 10px;
+	margin-bottom: 5px; 
+}
+p{
+	text-align: center; 
+	font-size: 10pt; 
+}
+#button{
+	font-family: 'Rock Salt', cursive; 
+	font-size: 15pt;  
+    border-radius: 5px;  
+    border: solid black 2px; 
+    background-color: transparent; 
+    height: 50px; 
+    width: 275px; 
+   
+}
+#button:hover{
+	background-color: #BBFD5E;
 }
 #overlay-one{
 	z-index: -1; 
@@ -114,17 +114,6 @@ input{
 	left: 740px; 
 	
 }
-.nav ul {
-    position: absolute;
-    top: 50%;
-    -webkit-transform: translateY(-50%);
-    -ms-transform: translateY(-50%);
-    transform: translateY(-50%);
-    list-style: none;
-    margin: 0;
-    padding: 0;
-}
-
 .nav a{
     text-decoration: none; 
     color: white; 

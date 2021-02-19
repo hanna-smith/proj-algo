@@ -93,12 +93,11 @@ h1{
     padding-bottom: 50px; 
     font-size: 30pt; 
 }
-
 .sign-up{
     margin-top: 75px; 
     width: 100%; 
     margin-bottom: 50px; 
-    margin-left: 100px; 
+    text-align: center; 
     padding-top: 50px; 
 }
 .sign-up h3{
