@@ -1,6 +1,7 @@
 package com.smithHanna.SucculentWebsite.models;
 
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -9,6 +10,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.PrePersist;
 import javax.persistence.PreUpdate;
@@ -29,11 +32,13 @@ public class Subscription {
 	private int subLengthInMonths; 
 	@NotBlank
 	@Future
-	private Date shipmentDate; 
-	@NotBlank
-	private String plantSelection;
-	@NotBlank
-	private String customSelection; 
+	private Date shipmentDate;  
+	private double subAmount; 
+	private String reciever; 
+	private String recAddress; 
+	private String recCity; 
+	private String recState; 
+	private String recZip; 
 	private String optionalMessage; 
 	@Column(updatable=false)
 	private Date createdAt; 
@@ -41,7 +46,12 @@ public class Subscription {
 	@ManyToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name="user_id")
 	private User user; 
-	
+	@ManyToMany(fetch=FetchType.LAZY)
+	@JoinTable(
+			name=("subscription_details"),
+			joinColumns = @JoinColumn(name=("subscription_id")),
+			inverseJoinColumns = @JoinColumn(name="product_id"))
+	private List<Product> products; 
 	public Subscription() {
 		
 	}
@@ -78,20 +88,60 @@ public class Subscription {
 		this.shipmentDate = shipmentDate;
 	}
 
-	public String getPlantSelection() {
-		return plantSelection;
+	public double getSubAmount() {
+		return subAmount;
 	}
 
-	public void setPlantSelection(String plantSelection) {
-		this.plantSelection = plantSelection;
+	public void setSubAmount(double subAmount) {
+		this.subAmount = subAmount;
 	}
 
-	public String getCustomSelection() {
-		return customSelection;
+	public String getReciever() {
+		return reciever;
 	}
 
-	public void setCustomSelection(String customSelection) {
-		this.customSelection = customSelection;
+	public void setReciever(String reciever) {
+		this.reciever = reciever;
+	}
+
+	public String getRecAddress() {
+		return recAddress;
+	}
+
+	public void setRecAddress(String recAddress) {
+		this.recAddress = recAddress;
+	}
+
+	public String getRecCity() {
+		return recCity;
+	}
+
+	public void setRecCity(String recCity) {
+		this.recCity = recCity;
+	}
+
+	public String getRecState() {
+		return recState;
+	}
+
+	public void setRecState(String recState) {
+		this.recState = recState;
+	}
+
+	public String getRecZip() {
+		return recZip;
+	}
+
+	public void setRecZip(String recZip) {
+		this.recZip = recZip;
+	}
+
+	public String getOptionalMessage() {
+		return optionalMessage;
+	}
+
+	public void setOptionalMessage(String optionalMessage) {
+		this.optionalMessage = optionalMessage;
 	}
 
 	public Date getCreatedAt() {
@@ -109,14 +159,6 @@ public class Subscription {
 	public void setUpdatedAt(Date updatedAt) {
 		this.updatedAt = updatedAt;
 	}
-	
-	public String getOptionalMessage() {
-		return optionalMessage;
-	}
-
-	public void setOptionalMessage(String optionalMessage) {
-		this.optionalMessage = optionalMessage;
-	}
 
 	public User getUser() {
 		return user;
@@ -126,14 +168,22 @@ public class Subscription {
 		this.user = user;
 	}
 
+	public List<Product> getProducts() {
+		return products;
+	}
+
+	public void setProducts(List<Product> products) {
+		this.products = products;
+	}
+
 	@PrePersist
 	protected void onCreate() {
 		this.createdAt = new Date();
 	}
+	
 	@PreUpdate
 	protected void onUpdate() {
 		this.updatedAt = new Date();
 	}
-	
 	
 }

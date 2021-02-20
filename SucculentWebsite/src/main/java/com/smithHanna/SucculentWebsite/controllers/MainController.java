@@ -15,6 +15,7 @@ import com.smithHanna.SucculentWebsite.models.EmailUpdater;
 import com.smithHanna.SucculentWebsite.models.Plant;
 import com.smithHanna.SucculentWebsite.models.Subscription;
 import com.smithHanna.SucculentWebsite.models.SubscriptionType;
+import com.smithHanna.SucculentWebsite.models.User;
 import com.smithHanna.SucculentWebsite.services.EmailUpdaterService;
 import com.smithHanna.SucculentWebsite.services.SubscriptionService;
 import com.smithHanna.SucculentWebsite.services.UserService;
@@ -55,20 +56,27 @@ public class MainController {
 	}
 	
 	@GetMapping("/chooseyoursubscription")
-	public String subTypePage(@ModelAttribute("subscription")Subscription subscription, Model model) {
+	public String subTypePage(@ModelAttribute("subscription")Subscription subscription, HttpSession session, Model model) {
+		Long userId = (Long)session.getAttribute("user_id");
+		if(userId == null) {
+			return "redirect:/login"; 
+		}
 		model.addAttribute("numOfPlants", Plant.numOfPlants);
 		model.addAttribute("subLengthInMonths", SubscriptionType.subLengthInMonths);
 		return "subscription.jsp"; 
 	}
 	
 	@PostMapping("/chooseyoursubscription")
-	public String subTypeSubmit(@Valid @ModelAttribute("subscription")Subscription subscription, BindingResult result, Model model) {
+	public String subTypeSubmit(@Valid @ModelAttribute("subscription")Subscription subscription, BindingResult result, HttpSession session, Model model) {
 		if(result.hasErrors()) {
 			model.addAttribute("numOfPlants", Plant.numOfPlants);
 			model.addAttribute("subLengthInMonths", SubscriptionType.subLengthInMonths);
 			return "subscription.jsp"; 
 		}
+		Long userId = (Long)session.getAttribute("user_id");
+		User user = this.uService.findUserById(userId);
+		subscription.setUser(user);
 		this.sService.createSubscription(subscription);
-		return "redirect:/thismonth'ssucculents";
+		return "redirect:/thismonth'ssuccs";
 	}
 }
