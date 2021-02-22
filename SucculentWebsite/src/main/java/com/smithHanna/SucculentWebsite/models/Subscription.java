@@ -3,6 +3,7 @@ package com.smithHanna.SucculentWebsite.models;
 import java.util.Date;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -16,7 +17,6 @@ import javax.persistence.ManyToOne;
 import javax.persistence.PrePersist;
 import javax.persistence.PreUpdate;
 import javax.persistence.Table;
-import javax.validation.constraints.Future;
 import javax.validation.constraints.NotBlank; 
 
 
@@ -28,14 +28,13 @@ public class Subscription {
 	private Long id; 
 	@NotBlank
 	private String numOfPlants; 
+	private String subLengthInMonths; 
 	@NotBlank
-	private int subLengthInMonths; 
-	@NotBlank
-	@Future
-	private Date shipmentDate;  
+	private String shipmentDate;  
 	private double subAmount; 
 	private String reciever; 
 	private String recAddress; 
+	private String recAddress2; 
 	private String recCity; 
 	private String recState; 
 	private String recZip; 
@@ -46,7 +45,7 @@ public class Subscription {
 	@ManyToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name="user_id")
 	private User user; 
-	@ManyToMany(fetch=FetchType.LAZY)
+	@ManyToMany(fetch=FetchType.LAZY, cascade=CascadeType.PERSIST)
 	@JoinTable(
 			name=("subscription_details"),
 			joinColumns = @JoinColumn(name=("subscription_id")),
@@ -56,6 +55,20 @@ public class Subscription {
 		
 	}
 
+	public Subscription(String plants, String length, String shipment, String rec, String add1, String add2, String city, String state, String zip, String message) {
+		this.numOfPlants = plants; 
+		this.subLengthInMonths = length; 
+		this.shipmentDate = shipment; 
+		this.reciever = rec; 
+		this.recAddress = add1; 
+		this.recAddress2 = add2; 
+		this.recCity = city; 
+		this.recState = state; 
+		this.recZip = zip; 
+		this.optionalMessage = message; 
+		
+		
+	}
 	public Long getId() {
 		return id;
 	}
@@ -72,19 +85,19 @@ public class Subscription {
 		this.numOfPlants = numOfPlants;
 	}
 
-	public int getSubLengthInMonths() {
+	public String getSubLengthInMonths() {
 		return subLengthInMonths;
 	}
 
-	public void setSubLengthInMonths(int subLengthInMonths) {
+	public void setSubLengthInMonths(String subLengthInMonths) {
 		this.subLengthInMonths = subLengthInMonths;
 	}
 
-	public Date getShipmentDate() {
+	public String getShipmentDate() {
 		return shipmentDate;
 	}
 
-	public void setShipmentDate(Date shipmentDate) {
+	public void setShipmentDate(String shipmentDate) {
 		this.shipmentDate = shipmentDate;
 	}
 
@@ -110,6 +123,14 @@ public class Subscription {
 
 	public void setRecAddress(String recAddress) {
 		this.recAddress = recAddress;
+	}
+
+	public String getRecAddress2() {
+		return recAddress2;
+	}
+
+	public void setRecAddress2(String recAddress2) {
+		this.recAddress2 = recAddress2;
 	}
 
 	public String getRecCity() {

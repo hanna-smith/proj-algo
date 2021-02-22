@@ -1,0 +1,71 @@
+.open {
+	max-width: 800px;
+	min-width: 650px; 
+	text-align: center; 
+	margin: auto;  
+}
+.sub-progress{
+	min-width: 800px; 
+	max-width: 1200px;
+	margin: auto; 
+}
+.sub-progress p{ 
+	font-size: 9pt;
+	width: 175px; 
+	text-align: center; 
+}
+
+.step-1{
+	display: inline-block; 
+	vertical-align: top; 
+}
+.step-1 p{
+	width: 200px; 
+}
+
+.step-2{
+	display: inline-block; 
+	vertical-align: top;
+}
+.step-3{
+	display: inline-block; 
+	vertical-align: top;
+}
+.step-4{
+	display: inline-block; 
+	vertical-align: top;
+}
+
+.arrow{
+	margin-top: 45px;
+	
+}
+.step-4 img{
+	margin-left: 5px; 
+}
+
+.step-2 img{
+	margin-right: 10px; 
+}
+.included h2{
+	text-align: center; 
+	margin-bottom: 50px; 
+	margin-top: 50px; 
+	
+}
+.included p{
+	display: inline-block; 
+	font-size: 10pt; 
+	max-width: 500px; 
+	text-align: center; 
+	margin-left: 200px;
+	color: white; 
+	background-color:#140f0b;
+	opacity: .75;
+	padding: 10px;  
+	border-radius: 5px; 
+}
+.included img{
+	padding-left: 200px;
+}
+

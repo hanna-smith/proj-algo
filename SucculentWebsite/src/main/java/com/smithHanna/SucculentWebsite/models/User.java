@@ -3,12 +3,16 @@ package com.smithHanna.SucculentWebsite.models;
 import java.util.Date;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.PrePersist;
 import javax.persistence.PreUpdate;
@@ -24,34 +28,38 @@ public class User {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private Long id; 
-	@NotBlank
-	@Size(min=3, max=15)
-	private String fName; 
-	@NotBlank
-	@Size(min=3, max=15)
+	private Long id;
+	@Size(min=2, message="Please enter a valid first name.")
+	private String fName;
+	@Size(min=2, message="Please enter a valid last name.")
 	private String lName; 
-	@NotBlank
 	@Email
 	private String email; 
 	@NotBlank
-	@Size(min=8)
+	@Size(min=8, message="Password must be 8 characters or more.")
 	private String password; 
 	@Transient
 	private String confirmPass; 
-	@NotBlank
+	@Size(min=5, message="Please enter a valid street address.")
 	private String streetAddress; 
-	@NotBlank
+	private String streetAddress2;
+	@Size(min=2, message="Please enter a valid city.")
 	private String city; 
-	@NotBlank
-	private String state; 
-	@NotBlank
+	private String state;
+	@Size(min=5, message="Please enter a valid Zip Code.")
 	private String zip; 
 	
 	@Column(updatable=false)
 	private Date createdAt; 
 	private Date updatedAt;
-	@OneToMany(mappedBy="user", fetch=FetchType.LAZY)
+	@ManyToMany(fetch = FetchType.EAGER)
+	@JoinTable(
+	        name = "users_roles", 
+	        joinColumns = @JoinColumn(name = "user_id"), 
+	        inverseJoinColumns = @JoinColumn(name = "role_id"))
+	
+	private List<Role> roles;
+	@OneToMany(mappedBy="user", fetch=FetchType.LAZY, cascade=CascadeType.ALL)
 	private List<Subscription> subscriptions; 
 	
 	public User() {
@@ -131,6 +139,14 @@ public class User {
 		this.streetAddress = streetAddress;
 	}
 
+	public String getStreetAddress2() {
+		return streetAddress2;
+	}
+
+	public void setStreetAddress2(String streetAddress2) {
+		this.streetAddress2 = streetAddress2;
+	}
+
 	public String getCity() {
 		return city;
 	}
@@ -163,6 +179,14 @@ public class User {
 		this.subscriptions = subscriptions;
 	}
 	
+	public List<Role> getRoles() {
+		return roles;
+	}
+
+	public void setRoles(List<Role> roles) {
+		this.roles = roles;
+	}
+
 	@PrePersist
 	protected void onCreate() {
 		this.createdAt = new Date();

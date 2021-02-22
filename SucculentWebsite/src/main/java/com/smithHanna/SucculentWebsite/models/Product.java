@@ -3,6 +3,7 @@ package com.smithHanna.SucculentWebsite.models;
 import java.util.Date;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -12,6 +13,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.PrePersist;
 import javax.persistence.PreUpdate;
 import javax.persistence.Table; 
@@ -26,24 +28,29 @@ public class Product {
 	private Long id; 
 	private String name; 
 	private double price; 
-	private byte image; 
+	private String image_url; 
 	private String productDescription; 
 	@Column(updatable=false)
 	private Date createdAt; 
 	private Date updatedAt; 
-	@ManyToMany(fetch=FetchType.LAZY)
+	@ManyToMany(fetch=FetchType.LAZY, cascade=CascadeType.PERSIST)
 	@JoinTable(
 			name=("subscription_details"),
 			joinColumns = @JoinColumn(name="product_id"),
 			inverseJoinColumns = @JoinColumn(name="subscription_id"))
 	private List<Subscription> subscriptions; 
-	@ManyToMany(fetch=FetchType.LAZY)
-	@JoinTable(name=("products_categories"),
-				joinColumns =@JoinColumn(name="product_id"),
-				inverseJoinColumns = @JoinColumn(name="category_id"))
-	private List<Category> categories; 
+	@ManyToOne(fetch=FetchType.LAZY, cascade=CascadeType.PERSIST)
+	@JoinColumn(name="category_id")
+	private Category category; 
 	
 	public Product() {
+		
+	}
+	public Product(String image_url, String name, String productDescription, double price) {
+		this.image_url = image_url; 
+		this.name = name;
+		this.productDescription = productDescription; 
+		this.price = price; 
 		
 	}
 
@@ -71,12 +78,12 @@ public class Product {
 		this.price = price;
 	}
 
-	public byte getImage() {
-		return image;
+	public String getImage_url() {
+		return image_url;
 	}
 
-	public void setImage(byte image) {
-		this.image = image;
+	public void setImage_url(String image_url) {
+		this.image_url = image_url;
 	}
 
 	public String getProductDescription() {
@@ -111,12 +118,12 @@ public class Product {
 		this.subscriptions = subscriptions;
 	}
 
-	public List<Category> getCategories() {
-		return categories;
+	public Category getCategory() {
+		return category;
 	}
 
-	public void setCategories(List<Category> categories) {
-		this.categories = categories;
+	public void setCategory(Category category) {
+		this.category = category;
 	}
 	
 	@PrePersist

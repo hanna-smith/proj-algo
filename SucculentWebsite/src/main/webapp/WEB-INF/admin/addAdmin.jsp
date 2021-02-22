@@ -20,22 +20,21 @@
             <div class="nav-toggle-bar"></div>
         </div>
         <nav class="nav">
-              <ul>
-                <li><a onclick="window.open('/', '_self')" href="/">Home</a></li>
-                <li><a href="/howitworks" onclick="window.open('/howitworks','_self')">How It Works</a></li>
-                <li><a href="/gallery" onclick="window.open('/gallery','_self')">Gallery</a></li>
-                <li><a href="/contactus" onclick="window.open('/contactus','_self')">Contact Us</a></li>
-                <li><a href="/whyus" onclick="window.open('/whyus','_self')">Why Us?</a></li>
-                <li><a href="/login" onclick="window.open('/login','_self')">Login</a></li>  
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/howitworks">How It Works</a></li>
+                <li><a href="/gallery">Gallery</a></li>
+                <li><a href="/contactus">Contact Us</a></li>
+                <li><a href="/whyus">Why Us?</a></li>
+                <li><a href="<c:url value="/logout" />">Logout</a></li>
             </ul>
         </nav>
-    <h1>Subscribe in just a few easy steps!</h1>
     <img class="succ-icon" src="/images/succulenticon.webp">
         <img id="overlay-one" src="/images/succulenticon.webp">
         <img id="overlay-two" src="/images/succulenticon.webp">
     <p><form:errors path="user.*"/></p>
-    <form:form method="POST" action="/subscribe" modelAttribute="user">
-		<h3>First, tell us who you are.</h3>
+    <form:form method="POST" action="/admin/addAdmin" modelAttribute="user">
+		<h3>New Page Admin</h3>
 		<div>
 			<form:label path="fName"/>First Name:
 			<form:errors path="fName"/>

@@ -23,19 +23,20 @@
             <div class="nav-toggle-bar"></div>
         </div>
         <nav class="nav">
-            <ul>
-                <li><a href="/">Home</a></li>
-                <li><a href="/howitworks">How It Works</a></li>
-                <li><a href="/gallery">Gallery</a></li>
-                <li><a href="/contactus">Contact Us</a></li>
-                <li><a href="/whyus">Why Us?</a></li>
-              	<li><a href="/logout">Logout</a></li>	
+              <ul>
+                <li><a onclick="window.open('/', '_self')" href="/">Home</a></li>
+                <li><a href="/howitworks" onclick="window.open('/howitworks','_self')">How It Works</a></li>
+                <li><a href="/gallery" onclick="window.open('/gallery','_self')">Gallery</a></li>
+                <li><a href="/contactus" onclick="window.open('/contactus','_self')">Contact Us</a></li>
+                <li><a href="/whyus" onclick="window.open('/whyus','_self')">Why Us?</a></li>
+                <li><a href="<c:url value="/logout" />" onclick="window.open('/logout','_self')">Logout</a></li>	
             </ul>
         </nav>
-        <h1>Choose your Subscription Type</h1>
-        <form:form method="POST" action="/thismonth'ssucculents" modelAttribute="subscription">
+        <h1>Give us the Details!</h1>
+        <form:form method="POST" action="/giftASucc" modelAttribute="subscription">
+        <form:hidden value="${user.id}" path="user"/>
         	<div class="form-group">
-        		<form:label path="numOfPlants"/> How many plants in your box?
+        		<form:label path="numOfPlants"/> How many succs?
         		<form:errors path="numOfPlants"/>
         		<form:select path="numOfPlants">
         		<c:forEach items="${numOfPlants}" var="numOfPlants">
@@ -44,7 +45,7 @@
         		</form:select>
         	</div>
         	<div class="form-group">
-        		<form:label path="subLengthInMonths"/> For how long?
+        		<form:label path="subLengthInMonths"/> For how many months?
         		<form:errors path="subLengthInMonths"/>
         		<form:select path="subLengthInMonths">
         			<c:forEach items="${subLengthInMonths}" var="subLengthInMonths">
@@ -53,11 +54,60 @@
         		</form:select>
         	</div>
         	<div class="form-group">
-        		<form:label path="shipmentDate"/> When should we ship it?
+        		<form:label path="shipmentDate"/> What day of the month would you like your box shipped? (shipments take roughly 2-4 days to arrive)
         		<form:errors path="shipmentDate"/>
-        		<form:input type="date" path="shipmentDate"/>
+        		<form:select path="shipmentDate">
+        			<c:forEach items="${shipmentDate}" var="shipmentDate">
+        				<option value="${shipmentDate}">${shipmentDate}</option>
+        			</c:forEach>
+        		</form:select>
         	</div>
-        	<input type="submit" value="Pick My Succulents">
+        	
+        	<h3>Who's it for?</h3>
+        	<div>
+	        	<form:label path="reciever"/>Recipient: 
+	        	<form:errors path="reciever"/>
+	        	<form:input path="reciever" placeholder="Enter first and last name"/>
+        	</div>
+        	<div>
+	        	<form:label path="recAddress"/>Recipient Shipping Address:  
+	        	<form:errors path="recAddress"/>
+	        	<form:input path="recAddress"/>
+        	</div>
+        		<div>
+	        	<form:label path="recAddress2"/>Building/Apt No. :  
+	        	<form:errors path="recAddress2"/>
+	        	<form:input path="recAddress2"/>
+        	</div>
+        		<div>
+	        	<form:label path="recCity"/>Recipient City:   
+	        	<form:errors path="recCity"/>
+	        	<form:input path="recCity"/>
+        	</div>
+        		<div>
+	        	<form:label path="recState"/>Recipient State:  
+	        	<form:errors path="recState"/>
+	        	<form:select path="recState">
+				<c:forEach items="${states }" var="state">
+					<option value="${state }">${state }</option>
+				</c:forEach>
+			</form:select>
+        	</div>
+        	<div>
+			<form:label path="recZip"/>Recipient Zip Code: 
+			<form:errors path="recZip"/>
+			<form:input path="recZip"/>
+		</div>
+		<div>
+			<form:label path="optionalMessage"/>Is this a gift? Write a message for the recipient!
+			<form:errors path="optionalMessage"/>
+			<form:input path="optionalMessage"/>
+		</div>
+		<input type="submit" value="Pick My Succulents">
         </form:form> 
+        			<footer>
+            	<p>Succs4U.com</p>
+        	</footer>
+    <script src="/js/homepage.js" async defer></script>
 </body>
 </html>

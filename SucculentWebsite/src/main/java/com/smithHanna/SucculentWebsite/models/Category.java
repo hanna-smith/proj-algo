@@ -2,14 +2,13 @@ package com.smithHanna.SucculentWebsite.models;
 
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 import javax.persistence.Table; 
 
 @Entity
@@ -20,10 +19,8 @@ public class Category {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long id; 
 	private String name; 
-	@ManyToMany(fetch=FetchType.LAZY)
-	@JoinTable(name=("products_categories"),
-				joinColumns =@JoinColumn(name="category_id"),
-				inverseJoinColumns = @JoinColumn(name="product_id"))
+	@OneToMany(mappedBy="category",fetch=FetchType.LAZY, cascade=CascadeType.ALL)
+	
 	private List<Product> products; 
 	
 	public Category() {

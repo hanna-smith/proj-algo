@@ -20,33 +20,30 @@
             <div class="nav-toggle-bar"></div>
         </div>
         <nav class="nav">
-           <ul>
-                <li><a onclick="window.open('/', '_self')" href="/">Home</a></li>
-                <li><a href="/howitworks" onclick="window.open('/howitworks','_self')">How It Works</a></li>
-                <li><a href="/gallery" onclick="window.open('/gallery','_self')">Gallery</a></li>
-                <li><a href="/contactus" onclick="window.open('/contactus','_self')">Contact Us</a></li>
-                <li><a href="/whyus" onclick="window.open('/whyus','_self')">Why Us?</a></li>
-                <li><a href="<c:url value="/logout" />" onclick="window.open('/logout','_self')">Logout</a></li>
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/howitworks">How It Works</a></li>
+                <li><a href="/gallery">Gallery</a></li>
+                <li><a href="/contactus">Contact Us</a></li>
+                <li><a href="/whyus">Why Us?</a></li>	
+                <li><a href="<c:url value="/logout" />">Logout</a></li>
             </ul>
         </nav>
          <img class="succ-icon" src="/images/succulenticon.webp">
         <img id="overlay-one" src="/images/succulenticon.webp">
         <img id="overlay-two" src="/images/succulenticon.webp">
-    <h1>Welcome Back, ${currentUser.fName}</h1>
-    <form method="get" action="/newSubscription">
-    	<input type="submit" value="Start a New Subscription">
+    <h1>Welcome to the Admin Page <c:out value="${currentUser.fName}"></c:out></h1>
+    <form method="get" action="/admin/productManagement">
+    	<input type="submit" value="Product Management Page">
     </form>
-    <form method="get" action="/mySubs">
-    	<input type="submit" value="See Current Subscriptions">
-    </form>
-    <form method="get" action="/giftASucc">
-    	<input type="submit" value="Gift a Subscription">
+    <form method="get" action="/admin/addAdmin">
+    	<input type="submit" value="Add a Page Administrator">
     </form>
     <form id="logoutForm" method="POST" action="/logout">
         <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
-        <input type="submit" value="Logout" />
+        <input type="submit" value="Logout!" />
     </form>
-    <footer>
+     <footer>
         <p>Succs4U.com</p>
     </footer>
     <script src="/js/homepage.js" async defer></script>

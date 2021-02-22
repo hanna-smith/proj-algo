@@ -1,0 +1,36 @@
+.open{
+	margin: auto; 
+	max-width: 1000px; 
+	min-width: 850px; 
+	text-align: center; 
+}
+.origin{
+	display: inline-block;
+	text-align: center; 
+	vertical-align: top; 
+	margin-top: 50px;
+	margin-left: 150px; 
+	 
+}
+.origin p{
+	max-width: 500px; 
+	
+}
+
+.mission{
+	display: inline-block; 
+	max-width: 400px; 
+	text-align: center; 
+	margin-left: 100px; 
+}
+
+.hands{
+	opacity: .75;
+	margin-top: 50px; 
+	margin-left: 50px; 
+}
+.sustainable{
+	display: inline-block; 
+	margin-left: 175px; 
+}
+
