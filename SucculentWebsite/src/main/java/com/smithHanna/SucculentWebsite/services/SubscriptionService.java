@@ -42,4 +42,7 @@ public class SubscriptionService {
 		subProducts.remove(product);
 		this.sRepo.save(subscription);
 	}
+	List<Subscription> findByCreatedAt(Subscription subscription){
+		return this.sRepo.findOrderByCreatedAt(subscription);
+	}
 }

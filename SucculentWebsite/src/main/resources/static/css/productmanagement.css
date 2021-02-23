@@ -1,0 +1,14 @@
+.button{
+	font-family: 'Rock Salt', cursive;
+    padding: 5px 10px 5px 10px;  
+    border-radius: 5px; 
+    margin-top: 75px; 
+    margin-left: 400px;  
+    border: solid black 2px; 
+    font-size: 16pt; 
+    background-color: transparent;
+    
+}
+.button:hover{
+    background-color: #BBFD5E;
+}

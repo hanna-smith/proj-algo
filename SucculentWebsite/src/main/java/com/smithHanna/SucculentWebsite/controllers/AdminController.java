@@ -24,8 +24,11 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.smithHanna.SucculentWebsite.models.Category;
 import com.smithHanna.SucculentWebsite.models.Product;
+import com.smithHanna.SucculentWebsite.models.State;
+import com.smithHanna.SucculentWebsite.models.User;
 import com.smithHanna.SucculentWebsite.services.CatProdService;
 import com.smithHanna.SucculentWebsite.services.UserService;
+import com.smithHanna.SucculentWebsite.validators.UserValidator;
 
 @Controller
 @RequestMapping("/admin")
@@ -35,6 +38,8 @@ public class AdminController {
 	private CatProdService cService; 
 	@Autowired
 	private UserService uService; 
+	@Autowired
+	private UserValidator uValidator; 
 	
 	private static String UPLOADED_FOLDER = "src/main/resources/static/prodImages/";
 	
@@ -46,16 +51,27 @@ public class AdminController {
 	}
 	
 	@GetMapping("/addAdmin")
-	public String addAdmin(Principal principal, Model model) {
-		String email = principal.getName();
-        model.addAttribute("user", uService.findUserByEmail(email));
+	public String addAdmin(@ModelAttribute("user")User user, Model model) {
+        model.addAttribute("states", State.States);
 		return "admin/addAdmin.jsp";
+	}
+	@PostMapping("/addAdmin")
+	public String createAdmin(@Valid @ModelAttribute("user")User user, BindingResult result, Model model) {
+		 uValidator.validate(user, result);
+	        if (result.hasErrors()) {
+	        	model.addAttribute("states", State.States);
+	            return "admin/addAdmin.jsp";
+	        }
+	        uService.saveUserWithAdminRole(user);
+	        return "redirect:/admin";
 	}
 	
 	@GetMapping("/addCategory")
 	public String addCategory(@ModelAttribute("category")Category category, Principal principal, Model model) {
 		String email = principal.getName();
         model.addAttribute("user", uService.findUserByEmail(email));
+        List<Category> allCategories = this.cService.allCategories();
+		model.addAttribute("allCategories", allCategories);
 		
 		return "admin/newCategory.jsp"; 
 	}
@@ -134,5 +150,9 @@ public class AdminController {
 		this.cService.deleteProduct(id);
 		return "redirect:/admin/addProduct"; 
 	}
-	
+	@GetMapping("/deleteCategory/{id}")
+	public String deleteCat(@PathVariable("id")Long id) {
+		this.cService.deleteCategory(id);
+		return "redirect:/admin/addCategory"; 
+	}
 }

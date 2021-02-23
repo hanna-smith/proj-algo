@@ -22,12 +22,12 @@
         </div>
         <nav class="nav">
             <ul>
-                <li><a href="/">Home</a></li>
-                <li><a href="/howitworks">How It Works</a></li>
-                <li><a href="/gallery">Gallery</a></li>
-                <li><a href="/contactus">Contact Us</a></li>
-                <li><a href="/whyus">Why Us?</a></li>
-                <li><a href="<c:url value="/logout" />">Logout</a></li>	
+                <li><a onclick="window.open('/', '_self')" href="/">Home</a></li>
+                <li><a href="/howitworks" onclick="window.open('/howitworks','_self')">How It Works</a></li>
+                <li><a href="/gallery" onclick="window.open('/gallery','_self')">Gallery</a></li>
+                <li><a href="/contactus" onclick="window.open('/contactus','_self')">Contact Us</a></li>
+                <li><a href="/whyus" onclick="window.open('/whyus','_self')">Why Us?</a></li>
+                <li><a href="<c:url value="/login?logout" />" onclick="window.open('/login?logout','_self')">Logout</a></li>
             </ul>
         </nav>
          <img class="succ-icon" src="/images/succulenticon.webp">

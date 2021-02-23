@@ -4,11 +4,12 @@
 .form input{
 	height: 40px; 
 	border-radius: 5px; 
+	font-family: 'Rock Salt', cursive;
 	
 }
 .form {
 	margin-top: 20px; 
-	text-align: center;  
+	text-align: center;
 }
 
 #button{

@@ -59,13 +59,16 @@ public class CatProdService {
 	public void deleteProduct(Long id) {
 		this.pRepo.deleteById(id);
 	}
+	public void deleteCategory(Long id) {
+		this.cRepo.deleteById(id);
+	}
 	
 	public List<Product> findByDescription(String search){
 		return this.pRepo.findByProductDescriptionContaining(search);
 	}
 	
-	public List<Product> findByCategory(Category search){
-		return this.pRepo.findByCategory(search);
+	public List<Product> findByCategoryId(Long id){
+		return this.pRepo.findByCategoryId(id);
 	}
 	
 	public void uploadProductPic(String image_url, String name, String productDescription, double price) {

@@ -39,7 +39,7 @@ public class Product {
 			joinColumns = @JoinColumn(name="product_id"),
 			inverseJoinColumns = @JoinColumn(name="subscription_id"))
 	private List<Subscription> subscriptions; 
-	@ManyToOne(fetch=FetchType.LAZY, cascade=CascadeType.PERSIST)
+	@ManyToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name="category_id")
 	private Category category; 
 	

@@ -52,6 +52,7 @@
         <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
         <input id="button" type="submit" value="Login"/>
         <br>
+         </form>
         <h3 id="or">Or</h3>
    			 <form method="get" action="/subscribe">
             	<button id="subscribe" type="submit">New here? Let's get you Registered!</button>
@@ -60,6 +61,6 @@
             <p>Succs4U.com</p>
         </footer>
         <script src="/js/homepage.js" async defer></script>
-    </form>
+   
 </body>
 </html>

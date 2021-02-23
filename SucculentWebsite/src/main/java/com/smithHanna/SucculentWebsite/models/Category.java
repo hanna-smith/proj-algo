@@ -2,7 +2,6 @@ package com.smithHanna.SucculentWebsite.models;
 
 import java.util.List;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -19,7 +18,7 @@ public class Category {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long id; 
 	private String name; 
-	@OneToMany(mappedBy="category",fetch=FetchType.LAZY, cascade=CascadeType.ALL)
+	@OneToMany(mappedBy="category",fetch=FetchType.LAZY)
 	
 	private List<Product> products; 
 	

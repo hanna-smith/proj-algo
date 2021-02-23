@@ -11,7 +11,8 @@
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="javascript" href="/js/homepage.js">
-        <link rel="stylesheet" href="/css/homepage.css">
+        <link rel="stylesheet" href="/css/template.css">
+        <link rel="stylesheet" href="/css/newsub.css">
         <link rel="preconnect" href="https://fonts.gstatic.com">
         <link href="https://fonts.googleapis.com/css2?family=Rock+Salt&display=swap" rel="stylesheet">
     </head>
@@ -29,10 +30,12 @@
                 <li><a href="/gallery" onclick="window.open('/gallery','_self')">Gallery</a></li>
                 <li><a href="/contactus" onclick="window.open('/contactus','_self')">Contact Us</a></li>
                 <li><a href="/whyus" onclick="window.open('/whyus','_self')">Why Us?</a></li>
-                <li><a href="<c:url value="/logout" />" onclick="window.open('/logout','_self')">Logout</a></li>	
+                <li><a href="/dashboard" onclick="window.opent('/dashboard','_self')">Dashboard</a></li>
+                <li><a href="<c:url value="/login?logout" />" onclick="window.open('/login?logout','_self')">Logout</a></li>	
             </ul>
         </nav>
         <h1>Give us the Details!</h1>
+        <div class="content">
         <form:form method="POST" action="/giftASucc" modelAttribute="subscription">
         <form:hidden value="${user.id}" path="user"/>
         	<div class="form-group">
@@ -99,12 +102,13 @@
 			<form:input path="recZip"/>
 		</div>
 		<div>
-			<form:label path="optionalMessage"/>Is this a gift? Write a message for the recipient!
+			<form:label path="optionalMessage"/>Write a sweet message for the recipient! (optional)
 			<form:errors path="optionalMessage"/>
 			<form:input path="optionalMessage"/>
 		</div>
-		<input type="submit" value="Pick My Succulents">
+		<input class="button" type="submit" value="View Order Summary"/>
         </form:form> 
+        </div>
         			<footer>
             	<p>Succs4U.com</p>
         	</footer>

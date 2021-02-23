@@ -26,17 +26,20 @@ public class Subscription {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long id; 
-	@NotBlank
 	private String numOfPlants; 
 	private String subLengthInMonths; 
-	@NotBlank
 	private String shipmentDate;  
 	private double subAmount; 
+	@NotBlank
 	private String reciever; 
+	@NotBlank
 	private String recAddress; 
 	private String recAddress2; 
+	@NotBlank
 	private String recCity; 
+	
 	private String recState; 
+	@NotBlank
 	private String recZip; 
 	private String optionalMessage; 
 	@Column(updatable=false)
@@ -45,7 +48,7 @@ public class Subscription {
 	@ManyToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name="user_id")
 	private User user; 
-	@ManyToMany(fetch=FetchType.LAZY, cascade=CascadeType.PERSIST)
+	@ManyToMany(fetch=FetchType.LAZY, cascade=CascadeType.ALL)
 	@JoinTable(
 			name=("subscription_details"),
 			joinColumns = @JoinColumn(name=("subscription_id")),

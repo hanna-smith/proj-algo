@@ -12,7 +12,7 @@ import com.smithHanna.SucculentWebsite.models.Product;
 public interface ProductRepository extends CrudRepository<Product, Long> {
 	
 	List<Product> findByProductDescriptionContaining(String search);
-	List<Product> findByCategory(Category search);
+	List<Product> findByCategoryId(Long id);
 	List<Product> findAll();
 	List<Product> findByCategoryNotContaining(Category category);
 }

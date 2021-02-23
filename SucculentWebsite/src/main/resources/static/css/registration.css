@@ -1,1 +1,38 @@
-@charset "UTF-8";
+.reg-form{
+	text-align: center; 
+}
+
+.input{
+	height: 30px; 
+	border-radius: 5px; 
+	font-family: 'Rock Salt', cursive;
+}
+#register{
+	margin-left: 0px; 
+	
+}
+.or{
+	text-align: center; 
+	padding-top: 30px; 
+}
+.login{
+	margin-left: 550px; 
+	margin-top: 30px; 
+	 font-family: 'Rock Salt', cursive;
+    padding: 5px 10px 5px 10px;  
+    border-radius: 5px; 
+    border: solid black 2px; 
+    font-size: 16pt; 
+    background-color: transparent;
+}
+.login:hover{
+	background-color: #BBFD5E;
+}
+
+#reg{
+	margin-left: 0px; 
+}
+#back{
+	margin-left: 575px; 
+}
+
